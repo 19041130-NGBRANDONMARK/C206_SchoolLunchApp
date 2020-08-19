@@ -1,10 +1,24 @@
+import java.util.ArrayList;
 
-public class MonthlyMenu extends MenuItem{
+public class MonthlyMenu {
+	private String displayName;
 	private int month;
-
-	public MonthlyMenu(String category, String name, boolean healthyChoice, double price, int month) {
-		super(category, name, healthyChoice, price);
+	private int numberOfItems;
+	private ArrayList<MenuItem> items;
+	
+	public MonthlyMenu(String displayName, int month, int numberOfItems, ArrayList<MenuItem> items) {
+		this.displayName = displayName;
 		this.month = month;
+		this.numberOfItems = numberOfItems;
+		this.items = items;
+	}
+	
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
 
 	public int getMonth() {
@@ -14,13 +28,28 @@ public class MonthlyMenu extends MenuItem{
 	public void setMonth(int month) {
 		this.month = month;
 	}
-	
+
+	public int getNumberOfItems() {
+		return numberOfItems;
+	}
+
+	public void setNumberOfItems(int numberOfItems) {
+		this.numberOfItems = numberOfItems;
+	}
+
+	public ArrayList<MenuItem> getItems() {
+		return items;
+	}
+
+	public void setItems(ArrayList<MenuItem> items) {
+		this.items = items;
+	}
+
 	public String toString() {
-		String output = "Name: "+getName();
-		output += "\nCategory: "+getCategory();
-		output += "\nPrice: "+getPrice();
-		output += "\nIs Healthy Choice: "+getHealthyChoice();
-		output += "\nMonth: "+getMonth();
+		String output = "Name: "+ getDisplayName();
+		output += "\nMonth: "+ getMonth();
+		output += "\nNumber of Items: "+ getNumberOfItems();
+		output += "\nItems: "+ getItems();
 		return output;
 	}
 }
