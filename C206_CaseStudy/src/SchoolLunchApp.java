@@ -235,7 +235,7 @@ public class SchoolLunchApp {
 		}
 		
 		
-		public static void viewMenuItem(ArrayList<MenuItem> menuItem) {
+		public static String viewMenuItem(ArrayList<MenuItem> menuItem) {
 			System.out.println("Displaying Menu Item");
 			ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
 			String output = String.format("%-20s %-20s %-10s %-10s" , "Name" , " Category" ,"Price" ," Healthier Choice?" );
@@ -244,7 +244,7 @@ public class SchoolLunchApp {
 				output += menu.get(i).toString();
 				i++;
 			}
-			System.out.println(output);
+			return output;
 		
 		}
 		
