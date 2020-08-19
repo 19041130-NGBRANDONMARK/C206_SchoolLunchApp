@@ -86,8 +86,75 @@ public class SchoolLunchApp {
 				}
 			}
 		}
+		public void createBill(ArrayList<Bill> billArr) {
+			
+		}
+		public void deleteBill(ArrayList<Bill> billArr) {
+			System.out.println("Delete a bill");
+			String payee = Helper.readString("Payee name: ");
+			double totalAmount = Helper.readDouble("Total amount: ");
+			
+			for (Bill b1 : billArr) {
+				if (b1.getPayee() == payee && b1.getTotalAmount() == totalAmount) {
+					b1.toString();
+					
+					boolean option = false;
+					while(option == false) {
+						
+						char optionB = Helper.readChar("Delete this bill? ");
+						
+						if (optionB == 'Y' || optionB == 'y') {
+							option = true;
+							billArr.remove(payee);
+							System.out.println("Bill deleted! ");
+			
+						}else if(optionB == 'N' || optionB =='n'){
+							option = false;
+							System.out.println("Bill not deleted! ");
+						}else {
+							System.out.println("Wrong option!");
+						}
+					}
+				}
+			}
+		}
+		public void viewAllBill(ArrayList<Bill> billArr) {
+			
+		}
 		
-
+		public void createMenu(ArrayList<Menu> menu) {
+			
+		}
+		
+		public void viewAllMenu(ArrayList<Menu> menu) {
+			String output = "";
+			for (Menu m : menu) {
+				output += m.toString()+"\n";
+			}
+			System.out.println(output);
+		}
+		
+		public void deleteMenu(ArrayList<Menu> menu) {
+			String output = "";
+			for (Menu m : menu) {
+				output += m.toString()+"\n";
+			}
+			System.out.println(output);
+			
+			Boolean yesNo = false;
+			String name = Helper.readString("Which one do you want to delete? *Enter the name* > ");
+			for (int i=0; i<menu.size(); i++) {
+				if (name.equalsIgnoreCase(menu.get(i).getDisplayName())) {
+					menu.remove(i);
+					yesNo = true;
+				}
+			}
+			if (yesNo) {
+				System.out.println(name+" deleted");
+			} else {
+				System.out.println(name+" not found");
+			}
+		}
 
 		
 
