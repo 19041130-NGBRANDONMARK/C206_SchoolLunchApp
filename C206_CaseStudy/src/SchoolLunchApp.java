@@ -142,60 +142,49 @@ public class SchoolLunchApp {
 			}
 		}
 		
-		public void createMenu(ArrayList<Menu> menu) {
-//			viewAllMenuItem(ArrayList<MenuItem> items);
-			ArrayList<MenuItem> choosen3 = null;
-			boolean yesNo = false;
+		public void createMenu(ArrayList<Menu> menu, ArrayList<MenuItem> items) {
+			String list = "";
+			for (int i=0; i<items.size(); i++) {
+				list += (i+1)+") "+items.get(i).toString()+"\n";
+			}
+			System.out.println(list);
+			
+			ArrayList<MenuItem> chosen3 = null;
 			
 			//first one
-			String name1 = Helper.readString("The first menu you want to add in? *Enter the name* > ");
-//			for (int i=0; i<items.size(); i++) {
-//				if (name.equalsIgnoreCase(items.get(i).getName())) {
-//					choosen3.add(items.get(i));
-//					yesNo = true;
-//				}
-//			}
-//			if (yesNo == false) {
-//				System.out.println(name1+" not found");
-//				choosen3.clear();
-//				yesNo = false;
-//				createMenu(menu);
-//			}
+			int num1 = Helper.readInt("The first menu you want to add in? *Enter the index num* > ");
+			if ((num1-1) < items.size()) {
+				chosen3.add(items.get(num1-1));
+			} else {
+				System.out.println(num1+" not found");
+				chosen3.clear();
+				createMenu(menu, items);
+			}
 			
 			//second one
-			String name2 = Helper.readString("The second menu you want to add in? *Enter the name* > ");
-//			for (int i=0; i<items.size(); i++) {
-//				if (name.equalsIgnoreCase(items.get(i).getName())) {
-//					choosen3.add(items.get(i));
-//					yesNo = true;
-//				}
-//			}
-//			if (yesNo == false) {
-//				System.out.println(name1+" not found");
-//				choosen3.clear();
-//				yesNo = false;
-//				createMenu(menu);
-//			}
+			int num2 = Helper.readInt("The second menu you want to add in? *Enter the index num* > ");
+			if ((num2-1) < items.size()) {
+				chosen3.add(items.get(num2-1));
+			} else {
+				System.out.println(num2+" not found");
+				chosen3.clear();
+				createMenu(menu, items);
+			}
 			
 			//third one
-			String name3 = Helper.readString("The second menu you want to add in? *Enter the name* > ");
-//			for (int i=0; i<items.size(); i++) {
-//				if (name.equalsIgnoreCase(items.get(i).getName())) {
-//					choosen3.add(items.get(i));
-//					yesNo = true;
-//				}
-//			}
-//			if (yesNo == false) {
-//				System.out.println(name1+" not found");
-//				choosen3.clear();
-//				yesNo = false;
-//				createMenu(menu);
-//			}
+			int num3 = Helper.readInt("The third menu you want to add in? *Enter the index num* > ");
+			if ((num3-1) < items.size()) {
+				chosen3.add(items.get(num3-1));
+			} else {
+				System.out.println(num3+" not found");
+				chosen3.clear();
+				createMenu(menu, items);
+			}
 			
 			String disName = Helper.readString("What name do you want it to be display as? > ");
 			int month = Helper.readInt("Which month? > ");
 			int num = Helper.readInt("Number of Item(s)? > ");
-			menu.add(new Menu(disName, month, num, choosen3));
+			menu.add(new Menu(disName, month, num, chosen3));
 			System.out.println(disName+" added");
 		}
 		
@@ -208,24 +197,18 @@ public class SchoolLunchApp {
 		}
 		
 		public void deleteMenu(ArrayList<Menu> menu) {
-			String output = "";
-			for (Menu m : menu) {
-				output += m.toString()+"\n";
-			}
-			System.out.println(output);
-			
-			Boolean yesNo = false;
-			String name = Helper.readString("Which one do you want to delete? *Enter the name* > ");
+			String list = "";
 			for (int i=0; i<menu.size(); i++) {
-				if (name.equalsIgnoreCase(menu.get(i).getDisplayName())) {
-					menu.remove(i);
-					yesNo = true;
-				}
+				list += (i+1)+") "+menu.get(i).toString()+"\n";
 			}
-			if (yesNo) {
-				System.out.println(name+" deleted");
+			System.out.println(list);
+			
+			int num = Helper.readInt("Which menu you want to delete? *Enter the index num* > ");
+			if ((num-1) < menu.size()) {
+				menu.remove(num-1);
+				System.out.println(num+" deleted");
 			} else {
-				System.out.println(name+" not found");
+				System.out.println(num+" not found");
 			}
 		}
 
