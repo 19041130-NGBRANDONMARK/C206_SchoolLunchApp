@@ -16,10 +16,12 @@ public class SchoolLunchAppTest {
     private MenuItem menu2;
     private Order i1;
 	private MenuItem i2;
+	private Menu mMenu1;
     
     private ArrayList <Account> accountList;
     private ArrayList <Order> orderList;
     private ArrayList <MenuItem> menuItem;
+    private ArrayList<Menu> menu;
     
     public SchoolLunchAppTest() {
         super();
@@ -46,6 +48,8 @@ public class SchoolLunchAppTest {
 		orderList = new Order("19015183", "19th March 2020", menuItem);
 	   menuItem = new ArrayList<MenuItem>();
 	   orderList = new ArrayList<Order>();
+	   
+	   mMenu1 = new Menu("menu1", 1, 1, menuItem);
     }
     
     @Test
@@ -94,7 +98,31 @@ public class SchoolLunchAppTest {
 		assertEquals("Check that Order arraylist size is 2", 2, orderList.size());
 		assertSame("Check that Order is added", i2, orderList.get(1));
 	}
-
- 
+    
+    public void createMenuTest() {
+    	//check if the list size is correct
+    	menu.add(mMenu1);
+    	assertEquals("Check that the rraylist size is 1", 1, menu.size());
+    	//check the first item in list is correct
+    	assertSame("Check that the first item in list is correct", menu1, orderList.get(0));
+    }
+    
+    public void viewAllMenuTest() {
+		//error
+    	//check if the list is empty
+		assertNotNull("Check if there is a valid arraylist to retreive", menu);
+		//check if the list size is correct
+		menu.add(mMenu1);
+		assertEquals("Check that the rraylist size is 1", 1, menu.size());
+	}
+	
+	public void deleteMenuTest() {
+		//error
+    	//check if the list is empty
+		assertNotNull("Check if there is a valid arraylist to retreive", menu);
+		//check if the list size is correct
+		menu.add(mMenu1);
+		assertEquals("Check that the rraylist size is 1", 1, menu.size());
+	}
 
 }

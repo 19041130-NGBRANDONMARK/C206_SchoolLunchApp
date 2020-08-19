@@ -142,7 +142,7 @@ public class SchoolLunchApp {
 			}
 		}
 		
-		public void createMenu(ArrayList<Menu> menu, ArrayList<MenuItem> items) {
+		public static void createMenu(ArrayList<Menu> menu, ArrayList<MenuItem> items) {
 			String list = "";
 			for (int i=0; i<items.size(); i++) {
 				list += (i+1)+") "+items.get(i).toString()+"\n";
@@ -188,7 +188,7 @@ public class SchoolLunchApp {
 			System.out.println(disName+" added");
 		}
 		
-		public void viewAllMenu(ArrayList<Menu> menu) {
+		public static void viewAllMenu(ArrayList<Menu> menu) {
 			String output = "";
 			for (Menu m : menu) {
 				output += m.toString()+"\n";
@@ -196,7 +196,7 @@ public class SchoolLunchApp {
 			System.out.println(output);
 		}
 		
-		public void deleteMenu(ArrayList<Menu> menu) {
+		public static void deleteMenu(ArrayList<Menu> menu) {
 			String list = "";
 			for (int i=0; i<menu.size(); i++) {
 				list += (i+1)+") "+menu.get(i).toString()+"\n";
