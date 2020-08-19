@@ -261,10 +261,17 @@ public class SchoolLunchApp {
 		}
 		
 
-	private static String createOrderItemList(ArrayList<Order> order) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		public static String retrieveAllOrder(ArrayList<Order> OrderList) {
+			String output = "";
+
+			for (int i = 0; i < OrderList.size(); i++) {
+
+				output += String.format("%-10s %-30s %-10s\n", OrderList.get(i).getStudentId());
+						OrderList.get(i).getOrderDate();
+						OrderList.get(i).getItems();
+			}
+			return output;
+		}
 	
 	
 }
