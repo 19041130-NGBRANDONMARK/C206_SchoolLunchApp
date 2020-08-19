@@ -124,5 +124,32 @@ public class SchoolLunchAppTest {
 		menu.add(mMenu1);
 		assertEquals("Check that the rraylist size is 1", 1, menu.size());
 	}
-
+	public void viewMenuItemTest() {
+		//error
+    	//check if the list is empty
+		assertNotNull("Check if there is a valid arraylist to retrieve", menuItem);
+		
+		
+	}
+	public void deleteMenuItemTest() {
+		//fail("Not yet implemented");
+		// Test if Item list is not null but empty - boundary
+		assertNotNull("Check if there is a valid arraylist to retreive", menu);
+		
+		//test if the list of Menu Items retrieved from the Menu is empty - boundary
+		String allMenuItem= SchoolLunchApp.
+		String testOutput = "";
+		assertEquals("Test that the retrieved Chromebooklist is empty?", testOutput, allMenuItem);
+		
+	}
+	public void addMenuItemTest() {
+		//error
+    	//check if the list is empty
+		menu.add(mMenu1);
+    	assertEquals("Check that the rraylist size is 1", 1, menu.size());
+    	//check the first item in list is correct
+    	assertSame("Check that the first item in list is correct", menu1, orderList.get(0));
+		
+		
+	}
 }
