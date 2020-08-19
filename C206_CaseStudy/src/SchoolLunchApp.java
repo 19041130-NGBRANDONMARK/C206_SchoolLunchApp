@@ -336,10 +336,35 @@ public class SchoolLunchApp {
 		
 		public void deleteAccount() {
 			
-			String deleteAcc = Helper.readString("Enter the username you want delete the account > ");
-			for (Account acc : accountList) {
-				if(deleteAcc.contentEquals(acc.getUsername())) {
-					accountList.clear();
+//			String deleteAcc = Helper.readString("Enter the username you want delete the account > ");
+//			for (Account acc : accountList) {
+//				if(deleteAcc.contentEquals(acc.getUsername())) {
+//					accountList.clear();
+//				}
+//			}
+			
+			System.out.println("Delete an Account");
+			Account account1 = null;
+			String studentId = Helper.readString("Student ID: ");
+			String username = Helper.readString("Enter Username: ");
+			for (Account acc1 : accountList) {
+	            if (acc1.getStudentId() == studentId && acc1.getUsername() == username) {
+	            	acc1.toString();
+					
+					boolean Option = false;
+					while(Option ==  false) {
+						char option = Helper.readChar("Delete this Account? ");
+						
+						if (option == 'Y' || option == 'y') {
+							Option = true;
+							accountList.remove(account1);
+							System.out.println("Account has been deleted successfully!");
+						} else if (option == 'n' || option == 'N') {
+							Option = true;
+						} else {
+							System.out.println("Invalid Option!");
+						}
+					}
 				}
 			}
 		}
