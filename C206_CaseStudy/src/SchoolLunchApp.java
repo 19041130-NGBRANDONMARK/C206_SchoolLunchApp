@@ -181,7 +181,7 @@ public class SchoolLunchApp {
 				createMenu(menu, items);
 			}
 			
-			String disName = Helper.readString("What name do you want it to be display as? > ");
+			String disName = Helper.readString("What name do you want the monthly menu to be display as? > ");
 			int month = Helper.readInt("Which month? > ");
 			int num = Helper.readInt("Number of Item(s)? > ");
 			menu.add(new Menu(disName, month, num, chosen3));
