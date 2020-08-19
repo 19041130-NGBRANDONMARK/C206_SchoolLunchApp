@@ -134,10 +134,10 @@ public class SchoolLunchApp {
 			}
 		}
 		public void viewAllBill(ArrayList<Bill> billArr) {
-			ArrayList<Bill> arrBill = new ArrayList<Bill>();
+			
 			String output = String.format("%-10s %-10s %-10s \n", "PAYEE", "TOTAL AMOUNT", "DUE DATE");
 			
-			for (Bill bill: arrBill) {
+			for (Bill bill: billArr) {
 				output += String.format("%-10s, %-10.2f, %-10s", bill.getPayee(), bill.getTotalAmount(),bill.getDueDate());
 			}
 		}
