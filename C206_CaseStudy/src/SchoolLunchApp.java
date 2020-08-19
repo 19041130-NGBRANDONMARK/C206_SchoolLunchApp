@@ -229,11 +229,59 @@ public class SchoolLunchApp {
 			}
 		}
 
+		public void addMenuItem(ArrayList<MenuItem> menuItem) {
+			System.out.println("Adding MenuItem");
+			String name = Helper.readString("What is the menu item name: " );
+			String category = Helper.readString("What category is it under: ");
+			boolean healthy = Helper.readBoolean("Is it Healthy ( true / false ): ");
+			double price = Helper.readDouble("How much is this item: ");
+			
+			ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
+			menu.add(new MenuItem(category, name , healthy , price));
+			System.out.println("MenuItem added!");
+			
+			
+			
+		}
+		
+		public void deleteMenuItem(ArrayList<MenuItem> menuItem) {
+			System.out.println("Deleting MenuItem");
+			ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
+			int i = 0;
+			String output = String.format("%-5s %-20s %-20s %-10s %-10s" , i+1 ,"Name" , " Category" ,"Price" ," Healthier Choice?" );
+		
+			while( i < menu.size() ) {
+				output += menu.get(i).toString();
+				i++;
+			}
+			System.out.println(output);
+			
+			int index = Helper.readInt("Which item do you want to delete: ");
+			
+			menu.remove(index - 1);
+			
+			System.out.println("Menu Item deleted!");
+		}
+		
+		
+		public  void viewMenuItem(ArrayList<MenuItem> menuItem) {
+			System.out.println("Displaying Menu Item");
+			ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
+			String output = String.format("%-20s %-20s %-10s %-10s" , "Name" , " Category" ,"Price" ," Healthier Choice?" );
+			int i = 0;
+			while( i < menu.size() ) {
+				output += menu.get(i).toString();
+				i++;
+			}
+			System.out.println(output);
+		
+		}
 		
 
 	private static String createOrderItemList(ArrayList<Order> order) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	
 }
