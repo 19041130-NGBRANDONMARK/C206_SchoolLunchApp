@@ -53,5 +53,9 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that Order arraylist size is 2", 2, orderList.size());
 		assertSame("Check that Order is added", i2, orderList.get(1));
 	}
+	
+	public void createMenu() {
+		fail("Not yet implemented");
+	}
 
 }
