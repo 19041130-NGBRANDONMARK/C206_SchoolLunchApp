@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public class MonthlyMenu {
+public class Menu {
 	private String displayName;
 	private int month;
 	private int numberOfItems;
 	private ArrayList<MenuItem> items;
 	
-	public MonthlyMenu(String displayName, int month, int numberOfItems, ArrayList<MenuItem> items) {
+	public Menu(String displayName, int month, int numberOfItems, ArrayList<MenuItem> items) {
 		this.displayName = displayName;
 		this.month = month;
 		this.numberOfItems = numberOfItems;
@@ -50,6 +50,7 @@ public class MonthlyMenu {
 		output += "\nMonth: "+ getMonth();
 		output += "\nNumber of Items: "+ getNumberOfItems();
 		output += "\nItems: "+ getItems();
+		output += "\n";
 		return output;
 	}
 }

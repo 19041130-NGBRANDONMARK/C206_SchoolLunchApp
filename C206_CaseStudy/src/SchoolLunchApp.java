@@ -82,7 +82,39 @@ public class SchoolLunchApp {
 			}
 		}
 		
-
+		public void createMenu(ArrayList<Menu> menu) {
+			
+		}
+		
+		public void viewAllMenu(ArrayList<Menu> menu) {
+			String output = "";
+			for (Menu m : menu) {
+				output += m.toString()+"\n";
+			}
+			System.out.println(output);
+		}
+		
+		public void deleteMenu(ArrayList<Menu> menu) {
+			String output = "";
+			for (Menu m : menu) {
+				output += m.toString()+"\n";
+			}
+			System.out.println(output);
+			
+			Boolean yesNo = false;
+			String name = Helper.readString("Which one do you want to delete? *Enter the name* > ");
+			for (int i=0; i<menu.size(); i++) {
+				if (name.equalsIgnoreCase(menu.get(i).getDisplayName())) {
+					menu.remove(i);
+					yesNo = true;
+				}
+			}
+			if (yesNo) {
+				System.out.println(name+" deleted");
+			} else {
+				System.out.println(name+" not found");
+			}
+		}
 
 		
 
