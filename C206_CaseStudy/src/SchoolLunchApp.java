@@ -254,7 +254,7 @@ public class SchoolLunchApp {
 				i++;
 			}
 			System.out.println(output);
-			
+		
 		}
 		
 
