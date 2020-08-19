@@ -144,48 +144,35 @@ public class SchoolLunchApp {
 		}
 		
 		public void createMenu(ArrayList<Menu> menu, ArrayList<MenuItem> items) {
-			String list = "";
+			String disName = Helper.readString("What name do you want the monthly menu to be display as? > ");
+			int month = Helper.readInt("Which month? > ");
+			while (month <= 0 || month >= 13) {
+				System.out.println("Invalid month");
+				month = Helper.readInt("Which month? > ");
+			}
+			int num = Helper.readInt("Number of Item(s)? > ");
+			
+			String list = "----------";
 			for (int i=0; i<items.size(); i++) {
 				list += (i+1)+") "+items.get(i).toString()+"\n";
 			}
+			list += "----------";
 			System.out.println(list);
 			
-			ArrayList<MenuItem> chosen3 = null;
+			ArrayList<MenuItem> chosen = null;
 			
-			//first one
-			int num1 = Helper.readInt("The first menu you want to add in? *Enter the index num* > ");
-			if ((num1-1) < items.size()) {
-				chosen3.add(items.get(num1-1));
-			} else {
-				System.out.println(num1+" not found");
-				chosen3.clear();
-				createMenu(menu, items);
+			int idx = Helper.readInt("Which menu item you want to add in? *Enter the index num* > ");
+			while (chosen.size() < num) {
+				if ((idx-1) < items.size() && (idx-1) >= 0) {
+					chosen.add(items.get(idx-1));
+					idx = Helper.readInt("Which menu item you want to add in? *Enter the index num* > ");
+				} else {
+					System.out.println(idx+" not found");
+					idx = Helper.readInt("Which menu item you want to add in? *Enter the index num* > ");
+				}
 			}
 			
-			//second one
-			int num2 = Helper.readInt("The second menu you want to add in? *Enter the index num* > ");
-			if ((num2-1) < items.size()) {
-				chosen3.add(items.get(num2-1));
-			} else {
-				System.out.println(num2+" not found");
-				chosen3.clear();
-				createMenu(menu, items);
-			}
-			
-			//third one
-			int num3 = Helper.readInt("The third menu you want to add in? *Enter the index num* > ");
-			if ((num3-1) < items.size()) {
-				chosen3.add(items.get(num3-1));
-			} else {
-				System.out.println(num3+" not found");
-				chosen3.clear();
-				createMenu(menu, items);
-			}
-			
-			String disName = Helper.readString("What name do you want the monthly menu to be display as? > ");
-			int month = Helper.readInt("Which month? > ");
-			int num = Helper.readInt("Number of Item(s)? > ");
-			menu.add(new Menu(disName, month, num, chosen3));
+			menu.add(new Menu(disName, month, num, chosen));
 			System.out.println(disName+" added");
 		}
 		
