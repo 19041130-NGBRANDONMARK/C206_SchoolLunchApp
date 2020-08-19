@@ -123,6 +123,15 @@ public class SchoolLunchAppTest {
 		menu.add(mMenu1);
 		assertEquals("Check that the rraylist size is 1", 1, menu.size());
 	}
+	
+	public void updateMenuTest() {
+		// error
+		// check if the list is empty
+		assertNotNull("Check if there is a valid arraylist to retreive", menu);
+		// check if the list size is correct
+		menu.add(mMenu1);
+		assertEquals("Check that the rraylist size is 1", 1, menu.size());
+	}
 
 	public void viewMenuItemTest() {
 		// error

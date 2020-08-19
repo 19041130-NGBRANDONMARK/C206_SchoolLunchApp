@@ -192,14 +192,37 @@ public class SchoolLunchApp {
 			System.out.println(list);
 			
 			int num = Helper.readInt("Which menu you want to delete? *Enter the index num* > ");
-			if ((num-1) < menu.size()) {
+			if ((num-1) < menu.size() && (num-1) >= 0) {
 				menu.remove(num-1);
 				System.out.println(num+" deleted");
 			} else {
 				System.out.println(num+" not found");
 			}
 		}
-
+		
+		public void updateMenu(ArrayList<Menu> menu) {
+			String list = "";
+			for (int i=0; i<menu.size(); i++) {
+				list += (i+1)+") "+menu.get(i).toString()+"\n";
+			}
+			System.out.println(list);
+			
+			int num = Helper.readInt("Which menu you want to update? *Enter the index num* > ");
+			if ((num-1) < menu.size() && (num-1) >= 0) {
+				String disName = Helper.readString("Enter the update name? > ");
+				int month = Helper.readInt("Enter the update month? > ");
+				while (month <= 0 || month >= 13) {
+					System.out.println("Invalid month");
+					month = Helper.readInt("Enter the update month? > ");
+				} 
+				menu.get(num-1).setDisplayName(disName);
+				menu.get(num-1).setMonth(month);
+				System.out.println(num+" updated");
+			} else {
+				System.out.println(num+" not found");
+			}
+		}
+		
 		public static void addMenuItem(ArrayList<MenuItem> menuItem) {
 			System.out.println("Adding MenuItem");
 			String name = Helper.readString("What is the menu item name: " );
