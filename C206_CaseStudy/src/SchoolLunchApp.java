@@ -5,7 +5,8 @@ public class SchoolLunchApp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		SchoolLunchApp ese = new SchoolLunchApp();
+		ese.start();
 		
 		
 	}
@@ -142,7 +143,7 @@ public class SchoolLunchApp {
 			}
 		}
 		
-		public static void createMenu(ArrayList<Menu> menu, ArrayList<MenuItem> items) {
+		public void createMenu(ArrayList<Menu> menu, ArrayList<MenuItem> items) {
 			String list = "";
 			for (int i=0; i<items.size(); i++) {
 				list += (i+1)+") "+items.get(i).toString()+"\n";
@@ -188,7 +189,7 @@ public class SchoolLunchApp {
 			System.out.println(disName+" added");
 		}
 		
-		public static void viewAllMenu(ArrayList<Menu> menu) {
+		public void viewAllMenu(ArrayList<Menu> menu) {
 			String output = "";
 			for (Menu m : menu) {
 				output += m.toString()+"\n";
@@ -196,7 +197,7 @@ public class SchoolLunchApp {
 			System.out.println(output);
 		}
 		
-		public static void deleteMenu(ArrayList<Menu> menu) {
+		public void deleteMenu(ArrayList<Menu> menu) {
 			String list = "";
 			for (int i=0; i<menu.size(); i++) {
 				list += (i+1)+") "+menu.get(i).toString()+"\n";
@@ -272,6 +273,77 @@ public class SchoolLunchApp {
 			}
 			return output;
 		}
+		
+		ArrayList<Account> accountList = new ArrayList<Account>();
+			
+		
+		private void start() {
+			int option = -1;
+			
+			while (option !=4) {
+				
+				menu();
+				option = Helper.readInt("Enter Choice >");
+				
+				if (option == 1) {
+					addAccount();
+					
+					
+				}
+				else if (option == 2) {
+					deleteAccount();
+					
+				}
+				else if (option == 3) {
+					ViewAllAccount();
+					
+				}
+				else {
+					System.out.println("Thank you!");
+					
+				}
+			}
+		}
+		private void menu() {
+			Helper.line(60, "=");
+			System.out.println("SCHOOL LUNCH ACCOUNT");
+			Helper.line(60, "=");
+			System.out.println("1) Create Account");
+			System.out.println("2) Delete Account");
+			System.out.println("3) View All Accounts");
+			System.out.println("4) Quit");
+		}
+		
+		public void addAccount() {
+			String role = Helper.readString("Enter your role > ");
+			String contactNum = Helper.readString("Enter your contact number > ");
+			String studentID = Helper.readString("Enter your student ID > ");
+			String username = Helper.readString("Enter your username > ");
+			
+			Account a = new Account(role,contactNum, studentID, username);
+			accountList.add(a);
+		}
+		
+		public void deleteAccount() {
+			
+			String deleteAcc = Helper.readString("Enter the username you want delete the account > ");
+			for (Account acc : accountList) {
+				if(deleteAcc.contentEquals(acc.getUsername())) {
+					accountList.clear();
+				}
+			}
+		}
+		
+		public void ViewAllAccount() {
+			for (Account acc: accountList) {
+				acc.display();
+			}
+		}
+			
+
+
+
+
 	
 	
 }
