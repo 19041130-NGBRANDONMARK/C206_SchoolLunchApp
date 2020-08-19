@@ -22,7 +22,7 @@ public class C206_CaseStudyTest {
 	public void setUp() throws Exception {
 		i1 = new MenuItem("Fruits & Drinks", "Watermelon", true, 1.50);
 		i2 = new MenuItem("Fruits & Drinks", "Apple", true, 0.50);
-		orderList = new Order("19015183", "19-08-2020", menuList);
+		orderList = new Order("19015183", "19th March 2020", menuList);
 	   menuList = new ArrayList<MenuItem>();
 	   orderList = new ArrayList<Order>();
 		
