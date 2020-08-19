@@ -123,7 +123,60 @@ public class SchoolLunchApp {
 		}
 		
 		public void createMenu(ArrayList<Menu> menu) {
+//			viewAllMenuItem(ArrayList<MenuItem> items);
+			ArrayList<MenuItem> choosen3 = null;
+			boolean yesNo = false;
 			
+			//first one
+			String name1 = Helper.readString("The first menu you want to add in? *Enter the name* > ");
+//			for (int i=0; i<items.size(); i++) {
+//				if (name.equalsIgnoreCase(items.get(i).getName())) {
+//					choosen3.add(items.get(i));
+//					yesNo = true;
+//				}
+//			}
+//			if (yesNo == false) {
+//				System.out.println(name1+" not found");
+//				choosen3.clear();
+//				yesNo = false;
+//				createMenu(menu);
+//			}
+			
+			//second one
+			String name2 = Helper.readString("The second menu you want to add in? *Enter the name* > ");
+//			for (int i=0; i<items.size(); i++) {
+//				if (name.equalsIgnoreCase(items.get(i).getName())) {
+//					choosen3.add(items.get(i));
+//					yesNo = true;
+//				}
+//			}
+//			if (yesNo == false) {
+//				System.out.println(name1+" not found");
+//				choosen3.clear();
+//				yesNo = false;
+//				createMenu(menu);
+//			}
+			
+			//third one
+			String name3 = Helper.readString("The second menu you want to add in? *Enter the name* > ");
+//			for (int i=0; i<items.size(); i++) {
+//				if (name.equalsIgnoreCase(items.get(i).getName())) {
+//					choosen3.add(items.get(i));
+//					yesNo = true;
+//				}
+//			}
+//			if (yesNo == false) {
+//				System.out.println(name1+" not found");
+//				choosen3.clear();
+//				yesNo = false;
+//				createMenu(menu);
+//			}
+			
+			String disName = Helper.readString("What name do you want it to be display as? > ");
+			int month = Helper.readInt("Which month? > ");
+			int num = Helper.readInt("Number of Item(s)? > ");
+			menu.add(new Menu(disName, month, num, choosen3));
+			System.out.println(disName+" added");
 		}
 		
 		public void viewAllMenu(ArrayList<Menu> menu) {
