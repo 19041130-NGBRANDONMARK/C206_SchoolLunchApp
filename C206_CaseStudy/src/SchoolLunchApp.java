@@ -87,6 +87,21 @@ public class SchoolLunchApp {
 			}
 		}
 		public void createBill(ArrayList<Bill> billArr) {
+			ArrayList<Bill> arrBill = new ArrayList<Bill>();
+			System.out.println("Create a bill");
+			String addPayee = Helper.readString("Enter payee name: ");
+			double addTotalAmount = Helper.readDouble("Enter total amount: ");
+			String addDueDate = Helper.readString("Enter due date: ");
+			
+			String payee = addPayee;
+			double totalAmount = addTotalAmount;
+			String dueDate = addDueDate;
+			
+			arrBill.add(new Bill(addPayee, addTotalAmount, addDueDate));
+			System.out.println("Bill created");
+			
+			
+			
 			
 		}
 		public void deleteBill(ArrayList<Bill> billArr) {
@@ -109,7 +124,7 @@ public class SchoolLunchApp {
 							System.out.println("Bill deleted! ");
 			
 						}else if(optionB == 'N' || optionB =='n'){
-							option = false;
+							option = true;
 							System.out.println("Bill not deleted! ");
 						}else {
 							System.out.println("Wrong option!");
@@ -119,7 +134,12 @@ public class SchoolLunchApp {
 			}
 		}
 		public void viewAllBill(ArrayList<Bill> billArr) {
+			ArrayList<Bill> arrBill = new ArrayList<Bill>();
+			String output = String.format("%-10s %-10s %-10s \n", "PAYEE", "TOTAL AMOUNT", "DUE DATE");
 			
+			for (Bill bill: arrBill) {
+				output += String.format("%-10s, %-10.2f, %-10s", bill.getPayee(), bill.getTotalAmount(),bill.getDueDate());
+			}
 		}
 		
 		public void createMenu(ArrayList<Menu> menu) {
