@@ -17,11 +17,14 @@ public class SchoolLunchAppTest {
 	private Order i1;
 	private MenuItem i2;
 	private Menu mMenu1;
+	private Bill b1;
+	private Bill b2;
 
 	private ArrayList<Account> accountList;
 	private ArrayList<Order> orderList;
 	private ArrayList<MenuItem> menuItem;
 	private ArrayList<Menu> menu;
+	private ArrayList<Bill> bill;
 
 	public SchoolLunchAppTest() {
 		super();
@@ -36,10 +39,13 @@ public class SchoolLunchAppTest {
 		order2 = new Order("35000", "16/08/20", menuItem);
 		menu1 = new MenuItem("fish", "chicken", true, 10.0);
 		menu2 = new MenuItem("fish", "chicken", true, 10.0);
+		b1 = new Bill("Jack", 100.00, "19/08/2020");
+		b2 = new Bill("Jack", 100.00, "19/08/2020");
 
 		accountList = new ArrayList<Account>();
 		orderList = new ArrayList<Order>();
 		menuItem = new ArrayList<MenuItem>();
+		bill = new ArrayList<Bill>();
 
 		i1 = new MenuItem("Fruits & Drinks", "Watermelon", true, 1.50);
 		i2 = new MenuItem("Fruits & Drinks", "Apple", true, 0.50);
@@ -180,5 +186,32 @@ public class SchoolLunchAppTest {
 		String testOutput = "";
 		assertEquals("Test that the retrieved Chromebooklist is empty?", testOutput, allMenuItem);
 
+	}
+	public void viewBillTest() {
+		//check if the bill list is empty
+		//error
+		assertNotNull("Check if there is a valid arraylist to retrieve", bill);
+		
+		// check if the list size is correct
+		bill.add(b1);
+		assertEquals("Check that the Arraylist size is 1", 1, bill.size());
+	}
+	public void createBillTest() {
+		// check if the list size is correct
+		bill.add(b1);
+		bill.add(b2);
+		assertEquals("Check that the Arraylist size is 1", 1, bill.size());
+		// check that the correct fields are added into the arraylist
+		assertSame("Check that the correct fields in list are correct", b1, b2);
+			
+	}
+	public void deleteBillTest() {
+		// to see if there is any bill to delete from the list
+		assertNotNull("Test if there is bill to delete from the list", bill);
+		// The bill given is inside the list
+		assertEquals("Test that the bill user wants to find is in the list", b1, bill.get(1));
+		assertNull("Test the bill is deleted", bill);
+
+		
 	}
 }
