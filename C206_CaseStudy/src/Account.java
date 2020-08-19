@@ -53,7 +53,13 @@ public class Account {
 public String toString() {
 		
 		return String.format("%-15s %-10s %-10s %-20s" , getUserRole(),getContactNumber(),getStudentId(), getUsername());
-		
-	}
 	
+	}
+public void display() {
+	// TODO Auto-generated method stub
+	System.out.println("Role: " + userRole);
+	System.out.println("Contact  Number: " + contactNumber);
+	System.out.println("Student ID: " + studentId);
+	System.out.println("Username: " + username);	
+}
 }
