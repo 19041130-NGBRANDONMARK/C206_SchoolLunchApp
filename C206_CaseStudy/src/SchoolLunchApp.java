@@ -238,6 +238,7 @@ public class SchoolLunchApp {
 			
 		}
 		
+		
 		public static void deleteMenuItem(ArrayList<MenuItem> menuItem) {
 			System.out.println("Deleting MenuItem");
 			ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
@@ -269,6 +270,26 @@ public class SchoolLunchApp {
 			}
 			return output;
 		
+		}
+		
+		public static void updateMenuItem(ArrayList<MenuItem> menuItem) {
+			System.out.println("Updating Menu Item");
+			ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
+			String name = Helper.readString("What is the Menu Item name you want to update? ");
+			String change = Helper.readString("What is the name you want to change to? ");
+			double price = Helper.readDouble("What is the price you want to change to? ");
+			int i = 0;
+			while ( i < menu.size() ) {
+				if(menu.get(i).getName().equalsIgnoreCase(name)) {
+					menu.get(i).setName(change);
+					menu.get(i).setPrice(price);
+					break;
+					
+				}
+				i++;
+			}
+			
+			System.out.println("Menu Item updated");
 		}
 		
 
