@@ -305,30 +305,34 @@ public class SchoolLunchApp {
 			return output;
 		}
 		
-		ArrayList<Account> accountList = new ArrayList<Account>();
+		static ArrayList<Account> accountList = new ArrayList<Account>();
 			
 		
 		private void start() {
 			int option = -1;
 			
-			while (option !=4) {
+			while (option !=5) {
 				
 				menu();
 				option = Helper.readInt("Enter Choice >");
 				
 				if (option == 1) {
-					addAccount();
+					addAccount(accountList);
 					
 					
 				}
 				else if (option == 2) {
-					deleteAccount();
+					deleteAccount(accountList);
 					
 				}
 				else if (option == 3) {
-					ViewAllAccount();
+					viewAllAccount(accountList);
 					
 				}
+				else if (option == 4) {
+					updateAccount(accountList);
+				}
+				
 				else {
 					System.out.println("Thank you!");
 					
@@ -342,20 +346,34 @@ public class SchoolLunchApp {
 			System.out.println("1) Create Account");
 			System.out.println("2) Delete Account");
 			System.out.println("3) View All Accounts");
-			System.out.println("4) Quit");
+			System.out.println("4) Update Account");
+			System.out.println("5) Quit");
 		}
 		
-		public void addAccount() {
+		public static void addAccount(ArrayList<Account> accountList2) {
 			String role = Helper.readString("Enter your role > ");
 			String contactNum = Helper.readString("Enter your contact number > ");
 			String studentID = Helper.readString("Enter your student ID > ");
 			String username = Helper.readString("Enter your username > ");
 			
-			Account a = new Account(role,contactNum, studentID, username);
-			accountList.add(a);
+			boolean check = true;
+			
+			for (Account acc : accountList) {
+				if(acc.getUsername().equalsIgnoreCase(username)) {
+					check = false;
+					System.out.println("Error: Same username!");
+					break;
+				}
+			}
+			if (check == true) {
+				Account a = new Account(role,contactNum, studentID, username);
+				accountList.add(a);
+				System.out.println("Add Successfully!");
+			}
 		}
+			
 		
-		public void deleteAccount() {
+		public static void deleteAccount(ArrayList<Account> accountList2) {
 			
 //			String deleteAcc = Helper.readString("Enter the username you want delete the account > ");
 //			for (Account acc : accountList) {
@@ -372,7 +390,7 @@ public class SchoolLunchApp {
 	            if (acc1.getStudentId() == studentId && acc1.getUsername() == username) {
 	            	acc1.toString();
 					
-					boolean Option = false;
+					boolean Option = true;
 					while(Option ==  false) {
 						char option = Helper.readChar("Delete this Account? ");
 						
@@ -390,16 +408,66 @@ public class SchoolLunchApp {
 			}
 		}
 		
-		public void ViewAllAccount() {
+		public static void viewAllAccount(ArrayList<Account> accounList) {
+			String StudentId = Helper.readString("Enter your Student ID > ");
+			boolean check = true;
+			
 			for (Account acc: accountList) {
-				acc.display();
+				if(acc.getStudentId().contentEquals(StudentId)) {
+					check = false;
+					String output = String.format("%-20s%-20s%-20s%-20s\n", "ROLE: ", "CONTACT NUMBER: ", "STUDENT: ", "USERNAME: ");
+					output += String.format("%-20s%-20s%-20s%-20s", acc.getUserRole(), acc.getContactNumber(), acc.getStudentId(), acc.getUsername());
+					System.out.println(output);
+				}
+			}
+			
+			if(check == true) {
+				System.out.println("No account with the Student ID");
 			}
 		}
-			
-
-
-
-
-	
-	
+		
+		public static void updateAccount(ArrayList<Account> accountList){
+			String studentID = Helper.readString("Enter the Student ID > ");
+			for(Account acc: accountList){
+				if(acc.getStudentId().contentEquals(studentID)) {
+					
+					System.out.println("Option 1: Change Username");
+					System.out.println("Option 2: Change Contact Number");
+					int option = Helper.readInt("Which option do you want? > ");
+					
+					if (option == 1) {
+						String newUsername = Helper.readString("Enter your new Username > ");
+						
+						if(acc.getUsername().equalsIgnoreCase(newUsername)) {
+							System.out.println("Error: Same Username");
+						}
+						else {
+							acc.setUsername(newUsername);
+							System.out.println("Update Successfully!");
+						}
+					}
+					
+					else if (option == 2) {
+						String newContactNumber = Helper.readString("Enter your new Contact Number > ");
+						
+						if(acc.getContactNumber().equalsIgnoreCase(newContactNumber)) {
+							System.out.println("Error: Same Contact Number");
+						}
+						else {
+							acc.setContactNumber(newContactNumber);
+							System.out.println("Update Successfully!");
+						}
+					}
+					else {
+						System.out.println("Error: Invalid option number");
+						
+					}
+					
+				}
+				else {
+					System.out.println("No account with that Student ID! ");
+				}
+			}
+		}
 }
+
