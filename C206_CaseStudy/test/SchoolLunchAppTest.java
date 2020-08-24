@@ -105,38 +105,54 @@ public class SchoolLunchAppTest {
 	}
 
 	public void createMenuTest() {
+		// check if the list is null
+		assertNotNull("Check that the arraylist is empty", menu);
 		// check if the list size is correct
 		menu.add(mMenu1);
-		assertEquals("Check that the rraylist size is 1", 1, menu.size());
+		assertEquals("Check that the arraylist size is 1", 1, menu.size());
 		// check the first item in list is correct
-		assertSame("Check that the first item in list is correct", menu1, orderList.get(0));
+		assertSame("Check that the first item in list is correct", menu1, menu.get(0));
 	}
 
 	public void viewAllMenuTest() {
-		// error
 		// check if the list is empty
 		assertNotNull("Check if there is a valid arraylist to retreive", menu);
-		// check if the list size is correct
+		// check if the list retrieve correctly
 		menu.add(mMenu1);
-		assertEquals("Check that the rraylist size is 1", 1, menu.size());
+		assertSame("Check that the first item in list is correct", menu1, menu.get(0));
 	}
 
 	public void deleteMenuTest() {
-		// error
-		// check if the list is empty
-		assertNotNull("Check if there is a valid arraylist to retreive", menu);
+		// check if the list is null
+		assertNotNull("Check that the arraylist is empty", menu);
 		// check if the list size is correct
 		menu.add(mMenu1);
-		assertEquals("Check that the rraylist size is 1", 1, menu.size());
+		assertEquals("Check that the arraylist size is 1", 1, menu.size());
+		// check the first item in list is correct
+		assertSame("Check that the first item in list is correct", menu1, menu.get(0));
+		// check if delete successfully
+		Menu mMenu2 = menu.get(0);
+		menu.remove(0);
+		assertNotNull("Check that the arraylist is empty", menu);
+		// check if delete correctly
+		assertSame("check if delete correctly", mMenu2, mMenu1);
 	}
 	
 	public void updateMenuTest() {
-		// error
-		// check if the list is empty
-		assertNotNull("Check if there is a valid arraylist to retreive", menu);
+		// check if the list is null
+		assertNotNull("Check that the arraylist is empty", menu);
 		// check if the list size is correct
 		menu.add(mMenu1);
-		assertEquals("Check that the rraylist size is 1", 1, menu.size());
+		assertEquals("Check that the arraylist size is 1", 1, menu.size());
+		// check the first item in list is correct
+		assertSame("Check that the first item in list is correct", menu1, menu.get(0));
+		// check if update correctly
+		String newName = "FEB is the correct one";
+		int newMonth = 2;
+		menu.get(0).setDisplayName(newName);
+		menu.get(0).setMonth(newMonth);
+		assertSame("check if update correctly", newName, menu.get(0).getDisplayName());
+		assertSame("check if update correctly", newMonth, menu.get(0).getMonth());
 	}
 
 	public void viewMenuItemTest() {
