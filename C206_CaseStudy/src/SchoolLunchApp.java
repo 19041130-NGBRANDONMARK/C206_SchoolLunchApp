@@ -408,9 +408,9 @@ public class SchoolLunchApp {
 		}
 		
 		public static void addAccount(ArrayList<Account> accountList) {
-			String role = Helper.readString("Enter your role > ");
-			String contactNum = Helper.readString("Enter your contact number > ");
-			String studentID = Helper.readString("Enter your student ID > ");
+			String userRole = Helper.readString("Enter your role > ");
+			String contactNumber = Helper.readString("Enter your contact number > ");
+			String studentId = Helper.readString("Enter your student ID > ");
 			String username = Helper.readString("Enter your username > ");
 			
 			boolean check = true;
@@ -423,7 +423,7 @@ public class SchoolLunchApp {
 				}
 			}
 			if (check == true) {
-				Account a = new Account(role,contactNum, studentID, username);
+				Account a = new Account(userRole,contactNumber, studentId, username);
 				accountList.add(a);
 				System.out.println("Add Successfully!");
 			}
@@ -432,38 +432,42 @@ public class SchoolLunchApp {
 		
 		public static void deleteAccount(ArrayList<Account> accountList) {
 			
-//			String deleteAcc = Helper.readString("Enter the username you want delete the account > ");
-//			for (Account acc : accountList) {
-//				if(deleteAcc.contentEquals(acc.getUsername())) {
-//					accountList.clear();
-//				}
-//			}
-			
-			System.out.println("Delete an Account");
-			Account account1 = null;
-			String studentId = Helper.readString("Student ID: ");
-			String username = Helper.readString("Enter Username: ");
-			for (Account acc1 : accountList) {
-	            if (acc1.getStudentId() == studentId && acc1.getUsername() == username) {
-	            	acc1.toString();
-					
-					boolean Option = true;
-					while(Option ==  false) {
-						char option = Helper.readChar("Delete this Account? ");
-						
-						if (option == 'Y' || option == 'y') {
-							Option = true;
-							accountList.remove(account1);
-							System.out.println("Account has been deleted successfully!");
-						} else if (option == 'n' || option == 'N') {
-							Option = true;
-						} else {
-							System.out.println("Invalid Option!");
-						}
-					}
+			String deleteAcc = Helper.readString("Enter the username you want delete the account > ");
+			for (Account acc : accountList) {
+				if(acc.getUsername().equalsIgnoreCase(deleteAcc)) {
+					accountList.remove(acc);
+					System.out.println("Deleted Account Successfully");
+				} else {
+					System.out.println("No account with that username!");
 				}
 			}
 		}
+			
+//			System.out.println("Delete an Account");
+//			Account account1 = null;
+//			String studentId = Helper.readString("Student ID: ");
+//			String username = Helper.readString("Enter Username: ");
+//			for (Account acc1 : accountList) {
+//	            if (acc1.getStudentId() == studentId && acc1.getUsername() == username) {
+//	            	acc1.toString();
+					
+//					boolean Option = true;
+//					while(Option ==  false) {
+//						char option = Helper.readChar("Delete this Account? ");
+//						
+//						if (option == 'Y' || option == 'y') {
+//							Option = true;
+//							accountList.remove(account1);
+//							System.out.println("Account has been deleted successfully!");
+//						} else if (option == 'n' || option == 'N') {
+//							Option = true;
+//						} else {
+//							System.out.println("Invalid Option!");
+//						}
+//					}
+//				}
+//			}
+//		}
 		
 		public static void viewAllAccount(ArrayList<Account> accounList) {
 			String StudentId = Helper.readString("Enter your Student ID > ");
@@ -490,7 +494,7 @@ public class SchoolLunchApp {
 					
 					System.out.println("Option 1: Change Username");
 					System.out.println("Option 2: Change Contact Number");
-					int option = Helper.readInt("Which option do you want? > ");
+					int option = Helper.readInt("Which do you want to update? > ");
 					
 					if (option == 1) {
 						String newUsername = Helper.readString("Enter your new Username > ");
@@ -505,13 +509,13 @@ public class SchoolLunchApp {
 					}
 					
 					else if (option == 2) {
-						String newContactNum = Helper.readString("Enter your new Contact Number > ");
+						String newContactNumber = Helper.readString("Enter your new Contact Number > ");
 						
-						if(acc.getContactNumber().equalsIgnoreCase(newContactNum)) {
+						if(acc.getContactNumber().equalsIgnoreCase(newContactNumber)) {
 							System.out.println("Error: Same Contact Number");
 						}
 						else {
-							acc.setContactNumber(newContactNum);
+							acc.setContactNumber(newContactNumber);
 							System.out.println("Update Successfully!");
 						}
 					}

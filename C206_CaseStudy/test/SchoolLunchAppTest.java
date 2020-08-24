@@ -95,9 +95,9 @@ public class SchoolLunchAppTest {
 	public void updateAccount() {
 		//
 		String username = Helper.readString("Enter your Username > ");
-		String ContactNumber = Helper.readString("Enter your Username > ");
+		String contactNumber = Helper.readString("Enter your Username > ");
 		assertNotSame(account2.getUsername(), username);
-		assertNotSame(account2.getContactNumber(), ContactNumber);
+		assertNotSame(account2.getContactNumber(), contactNumber);
 		System.out.println("Update success!");
 	
 	}
