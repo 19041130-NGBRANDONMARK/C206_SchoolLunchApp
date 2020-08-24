@@ -407,7 +407,7 @@ public class SchoolLunchApp {
 			System.out.println("5) Quit");
 		}
 		
-		public static void addAccount(ArrayList<Account> accountList2) {
+		public static void addAccount(ArrayList<Account> accountList) {
 			String role = Helper.readString("Enter your role > ");
 			String contactNum = Helper.readString("Enter your contact number > ");
 			String studentID = Helper.readString("Enter your student ID > ");
@@ -430,7 +430,7 @@ public class SchoolLunchApp {
 		}
 			
 		
-		public static void deleteAccount(ArrayList<Account> accountList2) {
+		public static void deleteAccount(ArrayList<Account> accountList) {
 			
 //			String deleteAcc = Helper.readString("Enter the username you want delete the account > ");
 //			for (Account acc : accountList) {
@@ -484,9 +484,9 @@ public class SchoolLunchApp {
 		}
 		
 		public static void updateAccount(ArrayList<Account> accountList){
-			String studentID = Helper.readString("Enter the Student ID > ");
+			String studentId = Helper.readString("Enter the Student ID > ");
 			for(Account acc: accountList){
-				if(acc.getStudentId().contentEquals(studentID)) {
+				if(acc.getStudentId().contentEquals(studentId)) {
 					
 					System.out.println("Option 1: Change Username");
 					System.out.println("Option 2: Change Contact Number");
@@ -505,13 +505,13 @@ public class SchoolLunchApp {
 					}
 					
 					else if (option == 2) {
-						String newContactNumber = Helper.readString("Enter your new Contact Number > ");
+						String newContactNum = Helper.readString("Enter your new Contact Number > ");
 						
-						if(acc.getContactNumber().equalsIgnoreCase(newContactNumber)) {
+						if(acc.getContactNumber().equalsIgnoreCase(newContactNum)) {
 							System.out.println("Error: Same Contact Number");
 						}
 						else {
-							acc.setContactNumber(newContactNumber);
+							acc.setContactNumber(newContactNum);
 							System.out.println("Update Successfully!");
 						}
 					}
