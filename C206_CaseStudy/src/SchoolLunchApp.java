@@ -231,8 +231,13 @@ public class SchoolLunchApp {
 			double price = Helper.readDouble("How much is this item: ");
 			
 			ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
-			menu.add(new MenuItem(category, name , healthy , price));
-			System.out.println("MenuItem added!");
+			if(price > 0) {
+				menu.add(new MenuItem(category, name , healthy , price));
+				System.out.println("MenuItem added!");
+			}else {
+				System.out.println("Price is incorrect as it is NOT greater than 0.");
+			}
+			
 			
 			
 			
@@ -259,17 +264,45 @@ public class SchoolLunchApp {
 		}
 		
 		
-		public static String viewMenuItem(ArrayList<MenuItem> menuItem) {
+		public static void viewMenuItem(ArrayList<MenuItem> menuItem) {
 			System.out.println("Displaying Menu Item");
+			System.out.println("1.View All Items");
+			System.out.println("2.View By Category");
 			ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
 			String output = String.format("%-20s %-20s %-10s %-10s" , "Name" , " Category" ,"Price" ," Healthier Choice?" );
-			int i = 0;
+			int choice = Helper.readInt("View All Item or View Items by Category : ");
+			
+			if ( choice == 1) {
+				int i = 0;
 			while( i < menu.size() ) {
-				output += menu.get(i).toString();
+				String name = menu.get(i).getName();
+				String cat = menu.get(i).getCategory();
+				double price = menu.get(i).getPrice();
+				boolean healthy = menu.get(i).getHealthyChoice();
+				output += String.format("%-20s %-20s %-10s %-10s" , name , cat , price , healthy );
 				i++;
 			}
-			return output;
-		
+			System.out.println(output);
+			
+			}else {
+				int i = 0;
+				while( i < menu.size() ) {
+					if(menu.get(i).getCategory().equalsIgnoreCase("Set Meal")) {
+						output += menu.toString();
+						i++;
+					}
+				}
+				
+				int o = 0;
+				while ( o < menu.size()) {
+					if(menu.get(o).getCategory().equalsIgnoreCase("Fruits & Drinks")) {
+					output += menu.toString();
+					o++;
+				}
+				}
+				System.out.println(output);
+			}
+			
 		}
 		
 		public static void updateMenuItem(ArrayList<MenuItem> menuItem) {
@@ -281,9 +314,13 @@ public class SchoolLunchApp {
 			int i = 0;
 			while ( i < menu.size() ) {
 				if(menu.get(i).getName().equalsIgnoreCase(name)) {
-					menu.get(i).setName(change);
+					if(price > 0) {
+						menu.get(i).setName(change);
 					menu.get(i).setPrice(price);
 					break;
+					}else {
+						System.out.println("Price is incorrect as it is NOT more than 0.");
+					}
 					
 				}
 				i++;
@@ -291,6 +328,26 @@ public class SchoolLunchApp {
 			
 			System.out.println("Menu Item updated");
 		}
+		
+		public static void searchItemByName(ArrayList<MenuItem> menuItem) {
+			System.out.println("Searching Item By Name");
+			ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
+			String name = Helper.readString("What do you want to find? ");
+			int i = 0;
+			
+			while ( i < menu.size()) {
+				if(menu.get(i).getName().equalsIgnoreCase(name)){
+					System.out.println("Menu Item Name: " + menu.get(i).getName());
+					System.out.println("Menu Item Price: " + menu.get(i).getPrice());
+					System.out.println("Healthier Choice? " + menu.get(i).getHealthyChoice());
+					System.out.println("Category: " + menu.get(i).getCategory());
+				}
+			}
+			
+			
+			
+		}
+		
 		
 
 		public static String retrieveAllOrder(ArrayList<Order> OrderList) {
