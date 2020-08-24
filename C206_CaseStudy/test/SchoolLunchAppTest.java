@@ -60,24 +60,19 @@ public class SchoolLunchAppTest {
 	public void addAccount() {
 		// Account list is not null, so that can add a new account
 		assertNotNull("Test if there is valid Account arraylist to add to", accountList);
+		
 
 		// Given an empty list, after adding 1 account, the size of the list is 1
 		accountList.add(account1);
-		assertEquals("Test if that Account arraylist size is 1?", 1, accountList.size());
-
-		// The account just added is as same as the first account of the list
-		assertSame("Test that account is added same as 1st account of the list?", account1, accountList.get(0));
-
-		// Add another Account. test The size of the list is 2?
 		accountList.add(account2);
-		assertEquals("Test if that Account arraylist size is 2?", 2, accountList.size());
+		assertEquals("Test if that Account arraylist size is 1?", 2, accountList.size());
 		
 		//If username already exist, display error message
-				String username = Helper.readString("Enter your Username > ");
-				for(Account acc: accountList) {
-					assertSame(acc.getUsername(), username);
-					System.out.println("Error: Username already exist!");
-				}
+		String username = Helper.readString("Enter your Username > ");
+		for(Account acc: accountList) {
+			assertSame(acc.getUsername(), username);
+			System.out.println("Error: Username already exist!");
+		}
 	}
 
 	@Test
@@ -95,7 +90,17 @@ public class SchoolLunchAppTest {
 		assertSame(account1.getUsername(), username);
 		System.out.println("Account deleted");
 	}
-
+	
+	@Test
+	public void updateAccount() {
+		//
+		String username = Helper.readString("Enter your Username > ");
+		String ContactNumber = Helper.readString("Enter your Username > ");
+		assertNotSame(account2.getUsername(), username);
+		assertNotSame(account2.getContactNumber(), ContactNumber);
+		System.out.println("Update success!");
+	
+	}
 	@Test
 	public void addOrderTest() {
 		// Item list is not null, so that can add a new item - boundary
