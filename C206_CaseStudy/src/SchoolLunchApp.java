@@ -518,52 +518,52 @@ public class SchoolLunchApp {
 			}
 		}
 		
-//		private void menu() {
-//			Helper.line(60, "=");
-//			System.out.println("SCHOOL LUNCH ACCOUNT");
-//			Helper.line(60, "=");
-//			System.out.println("1) Add Menu Item");
-//			System.out.println("2) Delete Menu Item");
-//			System.out.println("3) View All Menu Item");
-//			System.out.println("4) Update Menu Item");
-//			System.out.println("5) Search Menu Item");
-//			System.out.println("6) Quit");
-//		}
-//		
-//		
-//		private void start() {
-//			int option = -1;
-//			
-//			while (option !=6) {
-//				
-//				menu();
-//				option = Helper.readInt("Enter Choice >");
-//				
-//				if (option == 1) {
-//					addMenuItem();
-//					
-//					
-//				}
-//				else if (option == 2) {
-//					deleteMenuItem();
-//					
-//				}
-//				else if (option == 3) {
-//					viewMenuItem();
-//					
-//				}
-//				else if (option == 4) {
-//					updateMenuItem();
-//					
-//				}else if (option == 5) {
-//					searchItemByName();
-//				
-//				}else {
-//					System.out.println("Thank you!");
-//					
-//				}
-//			}
-//		}
+		private void menuu() {
+			Helper.line(60, "=");
+			System.out.println("SCHOOL LUNCH ACCOUNT");
+			Helper.line(60, "=");
+			System.out.println("1) Add Menu Item");
+			System.out.println("2) Delete Menu Item");
+			System.out.println("3) View All Menu Item");
+			System.out.println("4) Update Menu Item");
+			System.out.println("5) Search Menu Item");
+			System.out.println("6) Quit");
+		}
+		
+		
+		private void start() {
+			int option = -1;
+			
+			while (option !=6) {
+				
+				menu();
+				option = Helper.readInt("Enter Choice >");
+				
+				if (option == 1) {
+					addMenuItem();
+					
+					
+				}
+				else if (option == 2) {
+					deleteMenuItem();
+					
+				}
+				else if (option == 3) {
+					viewMenuItem();
+					
+				}
+				else if (option == 4) {
+					updateMenuItem();
+					
+				}else if (option == 5) {
+					searchItemByName();
+				
+				}else {
+					System.out.println("Thank you!");
+					
+				}
+			}
+		}
 		
 		
 		
