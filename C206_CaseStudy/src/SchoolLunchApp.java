@@ -430,31 +430,6 @@ public class SchoolLunchApp {
 			}
 		}
 			
-//			System.out.println("Delete an Account");
-//			Account account1 = null;
-//			String studentId = Helper.readString("Student ID: ");
-//			String username = Helper.readString("Enter Username: ");
-//			for (Account acc1 : accountList) {
-//	            if (acc1.getStudentId() == studentId && acc1.getUsername() == username) {
-//	            	acc1.toString();
-//					
-//					boolean Option = false;
-//					while(Option ==  false) {
-//						char option = Helper.readChar("Delete this Account? ");
-//						
-//						if (option == 'Y' || option == 'y') {
-//							Option = true;
-//							accountList.remove(account1);
-//							System.out.println("Account has been deleted successfully!");
-//						} else if (option == 'n' || option == 'N') {
-//							Option = true;
-//						} else {
-//							System.out.println("Invalid Option!");
-//						}
-//					}
-//				}
-//			}
-//		}
 		
 		public static void viewAllAccount(ArrayList<Account> accounList) {
 			String StudentId = Helper.readString("Enter your Student ID > ");
@@ -510,10 +485,6 @@ public class SchoolLunchApp {
 						System.out.println("Error: Invalid option number");
 						
 					}
-					
-//				}
-//				else {
-//					System.out.println("No account with that Student ID! ");
 				}
 			}
 		}
