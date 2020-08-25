@@ -28,7 +28,6 @@ public class OrderTest {
 		i2 = new MenuItem(2,"Fruits & Drinks","Fruit Cup",true,1.50);
 		 OrderList = new ArrayList<Order>();
 		 menuList = new ArrayList<MenuItem>();
-	
 	}
 	
 	@Test
