@@ -345,6 +345,49 @@ public class SchoolLunchApp {
 		}
 		
 		static ArrayList<Account> accountList = new ArrayList<Account>();
+		
+		
+		private void start() {
+			int option = -1;
+			
+			while (option !=5) {
+				
+				menu();
+				option = Helper.readInt("Enter Choice >");
+				
+				if (option == 1) {
+					addAccount(accountList);
+					
+					
+				}
+				else if (option == 2) {
+					deleteAccount(accountList);
+					
+				}
+				else if (option == 3) {
+					viewAllAccount(accountList);
+					
+				}
+				else if (option == 4) {
+					updateAccount(accountList);
+				}
+				
+				else {
+					System.out.println("Thank you!");
+					
+				}
+			}
+		}
+		private void menu() {
+			Helper.line(60, "=");
+			System.out.println("SCHOOL LUNCH ACCOUNT");
+			Helper.line(60, "=");
+			System.out.println("1) Create Account");
+			System.out.println("2) Delete Account");
+			System.out.println("3) View All Accounts");
+			System.out.println("4) Update Account");
+			System.out.println("5) Quit");
+		}
 			
 		
 		public static void addAccount(ArrayList<Account> accountList) {
@@ -372,42 +415,46 @@ public class SchoolLunchApp {
 		
 		public static void deleteAccount(ArrayList<Account> accountList) {
 			
-//			String deleteAcc = Helper.readString("Enter the username you want delete the account > ");
-//			for (Account acc : accountList) {
-//				if(acc.getUsername().equalsIgnoreCase(deleteAcc)) {
-//					accountList.remove(acc);
-//					System.out.println("Deleted Account Successfully");
-//				} else {
-//					System.out.println("No account with that username!");
-//				}
-//			}
-//		}
-			
-			System.out.println("Delete an Account");
-			Account account1 = null;
-			String studentId = Helper.readString("Student ID: ");
-			String username = Helper.readString("Enter Username: ");
-			for (Account acc1 : accountList) {
-	            if (acc1.getStudentId() == studentId && acc1.getUsername() == username) {
-	            	acc1.toString();
+			String deleteAcc = Helper.readString("Enter the username you want delete the account > ");
+			boolean check = true;
+			for (Account acc : accountList) {
+				if(acc.getUsername().equalsIgnoreCase(deleteAcc)) {
+					check = true;
+					accountList.remove(acc);
+					System.out.println("Deleted Account Successfully");
+					break;
 					
-					boolean Option = false;
-					while(Option ==  false) {
-						char option = Helper.readChar("Delete this Account? ");
-						
-						if (option == 'Y' || option == 'y') {
-							Option = true;
-							accountList.remove(account1);
-							System.out.println("Account has been deleted successfully!");
-						} else if (option == 'n' || option == 'N') {
-							Option = true;
-						} else {
-							System.out.println("Invalid Option!");
-						}
-					}
+				} else {
+					System.out.println("No account with that username!");
 				}
 			}
 		}
+			
+//			System.out.println("Delete an Account");
+//			Account account1 = null;
+//			String studentId = Helper.readString("Student ID: ");
+//			String username = Helper.readString("Enter Username: ");
+//			for (Account acc1 : accountList) {
+//	            if (acc1.getStudentId() == studentId && acc1.getUsername() == username) {
+//	            	acc1.toString();
+//					
+//					boolean Option = false;
+//					while(Option ==  false) {
+//						char option = Helper.readChar("Delete this Account? ");
+//						
+//						if (option == 'Y' || option == 'y') {
+//							Option = true;
+//							accountList.remove(account1);
+//							System.out.println("Account has been deleted successfully!");
+//						} else if (option == 'n' || option == 'N') {
+//							Option = true;
+//						} else {
+//							System.out.println("Invalid Option!");
+//						}
+//					}
+//				}
+//			}
+//		}
 		
 		public static void viewAllAccount(ArrayList<Account> accounList) {
 			String StudentId = Helper.readString("Enter your Student ID > ");
@@ -471,52 +518,52 @@ public class SchoolLunchApp {
 			}
 		}
 		
-		private void menu() {
-			Helper.line(60, "=");
-			System.out.println("SCHOOL LUNCH ACCOUNT");
-			Helper.line(60, "=");
-			System.out.println("1) Add Menu Item");
-			System.out.println("2) Delete Menu Item");
-			System.out.println("3) View All Menu Item");
-			System.out.println("4) Update Menu Item");
-			System.out.println("5) Search Menu Item");
-			System.out.println("6) Quit");
-		}
-		
-		
-		private void start() {
-			int option = -1;
-			
-			while (option !=6) {
-				
-				menu();
-				option = Helper.readInt("Enter Choice >");
-				
-				if (option == 1) {
-					addMenuItem();
-					
-					
-				}
-				else if (option == 2) {
-					deleteMenuItem();
-					
-				}
-				else if (option == 3) {
-					viewMenuItem();
-					
-				}
-				else if (option == 4) {
-					updateMenuItem();
-					
-				}else if (option == 5) {
-					searchItemByName();
-				
-				}else {
-					System.out.println("Thank you!");
-					
-				}
-			}
-		}
+//		private void menu() {
+//			Helper.line(60, "=");
+//			System.out.println("SCHOOL LUNCH ACCOUNT");
+//			Helper.line(60, "=");
+//			System.out.println("1) Add Menu Item");
+//			System.out.println("2) Delete Menu Item");
+//			System.out.println("3) View All Menu Item");
+//			System.out.println("4) Update Menu Item");
+//			System.out.println("5) Search Menu Item");
+//			System.out.println("6) Quit");
+//		}
+//		
+//		
+//		private void start() {
+//			int option = -1;
+//			
+//			while (option !=6) {
+//				
+//				menu();
+//				option = Helper.readInt("Enter Choice >");
+//				
+//				if (option == 1) {
+//					addMenuItem();
+//					
+//					
+//				}
+//				else if (option == 2) {
+//					deleteMenuItem();
+//					
+//				}
+//				else if (option == 3) {
+//					viewMenuItem();
+//					
+//				}
+//				else if (option == 4) {
+//					updateMenuItem();
+//					
+//				}else if (option == 5) {
+//					searchItemByName();
+//				
+//				}else {
+//					System.out.println("Thank you!");
+//					
+//				}
+//			}
+//		}
 		
 		
 		
