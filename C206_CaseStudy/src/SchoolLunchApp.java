@@ -11,25 +11,7 @@ public class SchoolLunchApp {
 		
 	}
 	
-		
-		public static void userTypeMenu() {
-			System.out.println("1. Admin login");
-			System.out.println("1. User login");
-		}
 				
-		
-		private static void optionMenu() {
-			
-			System.out.println("1. Display Menu Items");
-			System.out.println("2. Display Bills");
-			System.out.println("3. Display Menu");
-			System.out.println("4. Display Orders");
-			System.out.println("5. Quit");
-			
-		
-		}
-
-		
 		
 		public static void addOrder(ArrayList<Order>orderArr) {
 			System.out.print("Add a new order");
@@ -223,7 +205,7 @@ public class SchoolLunchApp {
 			}
 		}
 		
-		public static void addMenuItem(ArrayList<MenuItem> menuItem) {
+		public static void addMenuItem() {
 			System.out.println("Adding MenuItem");
 			String name = Helper.readString("What is the menu item name: " );
 			String category = Helper.readString("What category is it under: ");
@@ -244,7 +226,7 @@ public class SchoolLunchApp {
 		}
 		
 		
-		public static void deleteMenuItem(ArrayList<MenuItem> menuItem) {
+		public static void deleteMenuItem() {
 			System.out.println("Deleting MenuItem");
 			ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
 			int i = 0;
@@ -264,7 +246,7 @@ public class SchoolLunchApp {
 		}
 		
 		
-		public static void viewMenuItem(ArrayList<MenuItem> menuItem) {
+		public static void viewMenuItem() {
 			System.out.println("Displaying Menu Item");
 			System.out.println("1.View All Items");
 			System.out.println("2.View By Category");
@@ -305,7 +287,7 @@ public class SchoolLunchApp {
 			
 		}
 		
-		public static void updateMenuItem(ArrayList<MenuItem> menuItem) {
+		public static void updateMenuItem() {
 			System.out.println("Updating Menu Item");
 			ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
 			String name = Helper.readString("What is the Menu Item name you want to update? ");
@@ -329,7 +311,7 @@ public class SchoolLunchApp {
 			System.out.println("Menu Item updated");
 		}
 		
-		public static void searchItemByName(ArrayList<MenuItem> menuItem) {
+		public static void searchItemByName() {
 			System.out.println("Searching Item By Name");
 			ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
 			String name = Helper.readString("What do you want to find? ");
@@ -364,48 +346,6 @@ public class SchoolLunchApp {
 		
 		static ArrayList<Account> accountList = new ArrayList<Account>();
 			
-		
-		private void start() {
-			int option = -1;
-			
-			while (option !=5) {
-				
-				menu();
-				option = Helper.readInt("Enter Choice >");
-				
-				if (option == 1) {
-					addAccount(accountList);
-					
-					
-				}
-				else if (option == 2) {
-					deleteAccount(accountList);
-					
-				}
-				else if (option == 3) {
-					viewAllAccount(accountList);
-					
-				}
-				else if (option == 4) {
-					updateAccount(accountList);
-				}
-				
-				else {
-					System.out.println("Thank you!");
-					
-				}
-			}
-		}
-		private void menu() {
-			Helper.line(60, "=");
-			System.out.println("SCHOOL LUNCH ACCOUNT");
-			Helper.line(60, "=");
-			System.out.println("1) Create Account");
-			System.out.println("2) Delete Account");
-			System.out.println("3) View All Accounts");
-			System.out.println("4) Update Account");
-			System.out.println("5) Quit");
-		}
 		
 		public static void addAccount(ArrayList<Account> accountList) {
 			String userRole = Helper.readString("Enter your role > ");
@@ -530,5 +470,55 @@ public class SchoolLunchApp {
 				}
 			}
 		}
+		
+		private void menu() {
+			Helper.line(60, "=");
+			System.out.println("SCHOOL LUNCH ACCOUNT");
+			Helper.line(60, "=");
+			System.out.println("1) Add Menu Item");
+			System.out.println("2) Delete Menu Item");
+			System.out.println("3) View All Menu Item");
+			System.out.println("4) Update Menu Item");
+			System.out.println("5) Search Menu Item");
+			System.out.println("6) Quit");
+		}
+		
+		
+		private void start() {
+			int option = -1;
+			
+			while (option !=6) {
+				
+				menu();
+				option = Helper.readInt("Enter Choice >");
+				
+				if (option == 1) {
+					addMenuItem();
+					
+					
+				}
+				else if (option == 2) {
+					deleteMenuItem();
+					
+				}
+				else if (option == 3) {
+					viewMenuItem();
+					
+				}
+				else if (option == 4) {
+					updateMenuItem();
+					
+				}else if (option == 5) {
+					searchItemByName();
+				
+				}else {
+					System.out.println("Thank you!");
+					
+				}
+			}
+		}
+		
+		
+		
 }
 

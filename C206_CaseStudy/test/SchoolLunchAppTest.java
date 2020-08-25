@@ -14,7 +14,7 @@ public class SchoolLunchAppTest {
 	private Order order2;
 	private MenuItem menu1;
 	private MenuItem menu2;
-	private Order i1;
+	private MenuItem i1;
 	private MenuItem i2;
 	private Menu mMenu1;
 	private Bill b1;
@@ -174,11 +174,6 @@ public class SchoolLunchAppTest {
 		// check if the list is empty
 		assertNotNull("Check if there is a valid arraylist to retrieve", menu);
 
-		// test if the list of Menu Items retrieved from the Menu is empty - boundary
-		String allMenuItem = SchoolLunchApp.viewMenuItem(menuItem);
-		String testOutput = "";
-		assertEquals("Test that the retrieved Chromebooklist is empty?", testOutput, allMenuItem);
-
 		// check if the list size is correct
 		menu.add(mMenu1);
 		assertEquals("Check that the rraylist size is 1", 1, menu.size());
@@ -194,11 +189,6 @@ public class SchoolLunchAppTest {
 		menu.add(mMenu1);
 		assertEquals("Check that the rraylist size is 1", 1, menu.size());
 		
-		// test if the list of Menu Items retrieved from the Menu is empty - boundary
-		String allMenuItem = SchoolLunchApp.viewMenuItem(menuItem);
-		String testOutput = "";
-		assertEquals("Test that the retrieved Chromebooklist is empty?", testOutput, allMenuItem);
-
 	}
 
 	public void addMenuItemTest() {
@@ -210,11 +200,7 @@ public class SchoolLunchAppTest {
 		
 		// check the first item in list is correct
 		assertSame("Check that the first item in list is correct", menu1, orderList.get(0));
-		
-		// test if the list of Menu Items retrieved from the Menu is empty - boundary
-		String allMenuItem = SchoolLunchApp.viewMenuItem(menuItem);
-		String testOutput = "";
-		assertEquals("Test that the retrieved Chromebooklist is empty?", testOutput, allMenuItem);
+
 
 	}
 	public void viewBillTest() {
