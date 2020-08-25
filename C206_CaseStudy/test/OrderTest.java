@@ -67,7 +67,6 @@ public class OrderTest {
 		assertEquals("Test that Order arraylist size is 2?", 2, menuList.size());
 	}
 	
-
 	@Test
 	public void retrieveAllOrderTest() {
 		// Test if Item list is not null but empty -boundary
