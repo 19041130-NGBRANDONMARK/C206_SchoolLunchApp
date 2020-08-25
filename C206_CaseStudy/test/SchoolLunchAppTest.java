@@ -93,7 +93,7 @@ public class SchoolLunchAppTest {
 	
 	@Test
 	public void updateAccount() {
-		//
+		//check to see if the particulars for creating acount is created
 		String username = Helper.readString("Enter your Username > ");
 		String contactNumber = Helper.readString("Enter your Username > ");
 		assertNotSame(account2.getUsername(), username);
