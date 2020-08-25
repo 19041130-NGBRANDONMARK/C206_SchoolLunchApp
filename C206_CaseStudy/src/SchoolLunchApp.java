@@ -511,9 +511,9 @@ public class SchoolLunchApp {
 						
 					}
 					
-				}
-				else {
-					System.out.println("No account with that Student ID! ");
+//				}
+//				else {
+//					System.out.println("No account with that Student ID! ");
 				}
 			}
 		}
